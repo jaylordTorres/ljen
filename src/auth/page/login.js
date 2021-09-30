@@ -9,10 +9,15 @@ export const LoginPage = ({ history }) => {
     history.push(AppPaths.auth.register);
   }, [history]);
 
+  const onDashboard = useCallback(() => {
+    history.push(AppPaths.dashboard.root);
+  }, [history]);
+
   return (
     <div>
       <Typography variant="h1">Login</Typography>
       <Button onClick={onRegister}>redir to register using callback</Button>
+      <Button onClick={onDashboard}>goto dashboard</Button>
     </div>
   );
 };
