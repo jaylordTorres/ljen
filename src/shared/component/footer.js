@@ -1,5 +1,5 @@
 import { Divider, Typography } from "@mui/material";
-import { useFooterStyle } from "../style/footer.style";
+import { makeStyles } from "@mui/styles";
 
 export const Footer = () => {
   const classes = useFooterStyle();
@@ -12,3 +12,12 @@ export const Footer = () => {
     </div>
   );
 };
+
+const useFooterStyle = makeStyles((theme) => ({
+  container: {
+    padding: theme.spacing(2),
+  },
+  buy: {
+    color: "red",
+  },
+}));
