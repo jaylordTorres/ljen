@@ -1,14 +1,20 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
 import { Pages } from "./route";
-import { AuthProvider } from "../auth/service/auth_provider";
+import { AppInit } from "./app_init";
+import { AuthProvider, AuthStore } from "../auth/service";
+
+// local store service
+const authStore = AuthStore();
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AuthProvider>
-        <Pages />
+      <AuthProvider store={authStore}>
+        <AppInit>
+          <Pages />
+        </AppInit>
       </AuthProvider>
     </ThemeProvider>
   );
